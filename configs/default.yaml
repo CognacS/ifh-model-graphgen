@@ -1,0 +1,42 @@
+defaults:
+    - _self_
+    - data/dataset: qm9
+    - data/dataloader: batch_512
+    - data/datatransform: sequences_1
+    - model/removal: bfs_categorical_1_4
+    - model/diffusion: uniform_500
+    - model/architecture: model_large_cat
+    - run: molecular_train
+    - metric: molecular
+    - platform: home
+
+config_name: "\
+        D${hydra.runtime.choices.data/dataset}_\
+        T${hydra.runtime.choices.data/datatransform}_\
+        M${hydra.runtime.choices.model/architecture}_\
+        NR${hydra.runtime.choices.model/removal}_\
+        ND${hydra.runtime.choices.model/diffusion}_\
+        R${hydra.runtime.choices.run}"
+
+model:
+    conditional: false
+
+
+mode: train         # allowed values: (train, eval, train+eval, gen)
+
+# persistency
+enable_ckp: true    # enable saving checkpoints
+enable_log: true    # enable logging to wandb
+verbosity: info     # logging verbosity as in https://docs.python.org/3/library/logging.html
+                    # can be lower/upper case, or integer
+
+# load checkpoints
+load_ckp: null      # load checkpoint if not null: if str, load from path;
+                    # if int, load version with config_name
+
+# reproducibility
+seed: 0             # RNG seed
+
+# advanced
+debug: false        # if true, only use 1 batch and 1 epoch
+profile: false      # if true, profile the training process

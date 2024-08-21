@@ -1,0 +1,57 @@
+training:
+    denoising:
+        lambda_train_E: 5.0
+        lambda_train_ext_E: 5.0
+        concat_edges: true
+        weighted: true
+
+    optimizer:
+        lr: 0.0002
+        weight_decay: 1.0e-12
+
+    train_reinsertion: true
+    train_halting: true
+    train_denoising: true
+    log_every_n_steps: 100
+
+trainer:
+    max_epochs: 100000
+    log_every_n_steps: 400
+    val_check_interval: null
+    check_val_every_n_epoch: 2000
+    num_sanity_val_steps: 0
+    enable_progress_bar: true
+
+early_stopping:
+    module_monitors:
+        reinsertion:
+            monitor: valid_reinsertion/reinsertion_loss_kldiv
+            mode: min
+        denoising:
+            monitor: valid_denoising/denoising_loss_total_ce
+            mode: min
+        halting:
+            monitor: valid_halting/halting_prior_emd
+            mode: min
+    verbose: true
+    patience: 10
+
+checkpoint:
+    module_monitors:
+        reinsertion:
+            monitor: valid_reinsertion/reinsertion_loss_kldiv
+            mode: min
+        denoising:
+            monitor: valid_denoising/denoising_loss_total_ce
+            mode: min
+        halting:
+            monitor: valid_halting/halting_prior_emd
+            mode: min
+    every_n_epochs: 1
+
+logger:
+    wandb:
+        project: graph-generation-ifh
+        mode: online
+
+running_test: false

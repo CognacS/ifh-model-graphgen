@@ -1,0 +1,12 @@
+test:
+    generation:
+        num_samples: 100
+        batch_size: 100
+    metrics:
+        molecular:
+            molecular_vun: {}
+            molecular_distribution: 
+                data_partition: test
+        process:
+            computational_time: {}
+            computational_memory: {}

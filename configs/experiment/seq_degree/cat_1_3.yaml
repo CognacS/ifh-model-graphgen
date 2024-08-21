@@ -1,0 +1,15 @@
+# @package _global_
+
+model:
+    architecture:
+        reinsertion:
+            params:
+                out_properties:
+                    - 2
+    removal:
+        process:
+            params:
+                permutation_type: 'bfs'
+        schedule:
+            params:
+                block_size_options: [1, 3]

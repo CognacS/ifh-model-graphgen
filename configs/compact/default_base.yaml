@@ -1,0 +1,12 @@
+# @package _global_
+run:
+    logger:
+        wandb:
+            project: graph-generation-ifh-final
+            mode: online
+
+    early_stopping:
+        patience: 20
+
+mode: train+eval
+seed: ??? # need to enter a seed

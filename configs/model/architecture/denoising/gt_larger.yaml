@@ -1,0 +1,33 @@
+name: graph_transformer
+params:
+    transf_config:
+        encdec_hidden_dims:
+            x: 256
+            e: 128
+            y: 128
+
+        transf_inout_dims:
+            x: 256
+            e: 128
+            y: 128
+
+        transf_ffn_dims:
+            x: 512
+            e: 128
+            y: 256
+
+        transf_hparams:
+            heads: 16
+            cross_attn: ???
+
+        num_layers: 9
+        use_residuals_inout: true
+        simpler: true
+
+    gnn_encoder_config:
+        hidden_channels: 512
+        num_layers: 9
+        return_all_layers: false
+        architecture_type: rgcn
+
+    use_exp_encoder: true

@@ -1,0 +1,46 @@
+# @package _global_
+defaults:
+    - default_comm@
+    - /experiment/seq_degree/cat_1_2_8@
+
+config_name: 'exp3_catbg_bfs_comm_${seed}'
+group_name: 'exp3_catbg_bfs_comm'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 512
+                        e: 64
+                        y: 1024
+                    transf_inout_dims:
+                        x: 512
+                        e: 512
+                        y: 64
+                    transf_ffn_dims:
+                        x: 256
+                        e: 1024
+                        y: 64
+                    transf_hparams:
+                        heads: 16
+                    num_layers: 5
+                gnn_encoder_config:
+                    hidden_channels: 256
+                    num_layers: 11
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 1024
+                    num_layers: 5
+                gnn_out_channels: 64
+                readout_hidden_channels: 128
+        reinsertion:
+            params:
+                gnn_params:
+                    hidden_channels: 1024
+                    num_layers: 7
+                gnn_out_channels: 64
+                readout_hidden_channels: 64

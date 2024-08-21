@@ -1,0 +1,39 @@
+# @package _global_
+defaults:
+    - default_comm@
+    - /experiment/seq_degree/sequential@
+
+config_name: 'exp1_seq_bfs_comm_${seed}'
+group_name: 'exp1_seq_bfs_comm'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 512
+                        e: 512
+                        y: 256
+                    transf_inout_dims:
+                        x: 1024
+                        e: 512
+                        y: 64
+                    transf_ffn_dims:
+                        x: 256
+                        e: 1024
+                        y: 512
+                    transf_hparams:
+                        heads: 16
+                    num_layers: 7
+                gnn_encoder_config:
+                    hidden_channels: 64
+                    num_layers: 9
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 512
+                    num_layers: 5
+                gnn_out_channels: 1024
+                readout_hidden_channels: 64

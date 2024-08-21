@@ -1,0 +1,29 @@
+# @package _global_
+defaults:
+    - override /model/architecture: model_large
+    - override /model/removal: req_adaptive_bin
+
+
+model:
+    removal:
+        process:
+            params:
+                permutation_type: 'bfs'
+
+run:
+    training:
+        train_halting: false
+
+    early_stopping:
+        module_monitors:
+            reinsertion:
+                monitor: valid_reinsertion/reinsertion_loss_mse
+                mode: min
+            halting: null
+
+    checkpoint:
+        module_monitors:
+            reinsertion:
+                monitor: valid_reinsertion/reinsertion_loss_mse
+                mode: min
+            halting: null

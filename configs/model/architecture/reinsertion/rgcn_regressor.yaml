@@ -1,0 +1,10 @@
+name: gnn_regressor
+params:
+    architecture_type: rgcn
+    gnn_params:
+        hidden_channels: 128
+        num_layers: 7
+        jumping_knowledge: null
+    gnn_out_channels: 128
+    readout_hidden_channels: 256
+    out_properties: 1       # outputs only number of nodes

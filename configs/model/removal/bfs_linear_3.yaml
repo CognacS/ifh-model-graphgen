@@ -1,0 +1,11 @@
+process:
+    name: permutation
+    params:
+        permutation_type: bfs
+schedule:
+    name: binomial
+    params:
+        binomial_schedule_type: linear
+        max_time: 3
+timesampler:
+    name: uniform

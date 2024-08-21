@@ -1,0 +1,46 @@
+# @package _global_
+defaults:
+    - default_ego_big@
+    - /experiment/seq_degree/cat_1_4_16@
+
+config_name: 'exp3_catbg_bfs_ego_big_${seed}'
+group_name: 'exp3_catbg_bfs_ego_big'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 64
+                        e: 1024
+                        y: 1024
+                    transf_inout_dims:
+                        x: 128
+                        e: 128
+                        y: 128
+                    transf_ffn_dims:
+                        x: 512
+                        e: 64
+                        y: 1024
+                    transf_hparams:
+                        heads: 16
+                    num_layers: 7
+                gnn_encoder_config:
+                    hidden_channels: 128
+                    num_layers: 7
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 64
+                    num_layers: 9
+                gnn_out_channels: 512
+                readout_hidden_channels: 128
+        reinsertion:
+            params:
+                gnn_params:
+                    hidden_channels: 1024
+                    num_layers: 7
+                gnn_out_channels: 512
+                readout_hidden_channels: 512

@@ -1,0 +1,10 @@
+# @package _global_
+defaults:
+    - override /model/removal: bfs_sequential
+
+model:
+    architecture:
+        reinsertion:
+            params:
+                out_properties:
+                    - 1

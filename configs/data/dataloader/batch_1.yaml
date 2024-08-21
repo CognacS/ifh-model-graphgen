@@ -1,0 +1,9 @@
+defaults:
+    - base_dataloader
+
+train:
+    batch_size: 1
+valid:
+    batch_size: 1
+test:
+    batch_size: 1

@@ -1,0 +1,4 @@
+# @package _global_
+defaults:
+    - ../default_base@
+    - /experiment/task/train_comm@

@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+    - ../default_qm9@
+    - /experiment/seq_degree/bin_bfs@
+    - override /data/dataloader: batch_256
+
+config_name: 'abl2_bin_bfs_qm9_${seed}'
+group_name: 'abl2_bin_bfs_qm9'

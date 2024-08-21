@@ -1,0 +1,46 @@
+# @package _global_
+defaults:
+    - default_ego_small@
+    - /experiment/seq_degree/cat_1_2@
+
+config_name: 'exp2_catsm_bfs_ego_small_${seed}'
+group_name: 'exp2_catsm_bfs_ego_small'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 1024
+                        e: 512
+                        y: 64
+                    transf_inout_dims:
+                        x: 256
+                        e: 1024
+                        y: 512
+                    transf_ffn_dims:
+                        x: 256
+                        e: 256
+                        y: 1024
+                    transf_hparams:
+                        heads: 8
+                    num_layers: 7
+                gnn_encoder_config:
+                    hidden_channels: 64
+                    num_layers: 9
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 128
+                    num_layers: 9
+                gnn_out_channels: 512
+                readout_hidden_channels: 512
+        reinsertion:
+            params:
+                gnn_params:
+                    hidden_channels: 1024
+                    num_layers: 7
+                gnn_out_channels: 512
+                readout_hidden_channels: 512

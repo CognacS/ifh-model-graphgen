@@ -1,0 +1,39 @@
+# @package _global_
+defaults:
+    - default_ego_small@
+    - /experiment/seq_degree/sequential@
+
+config_name: 'exp1_seq_bfs_ego_small_${seed}'
+group_name: 'exp1_seq_bfs_ego_small'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 1024
+                        e: 64
+                        y: 256
+                    transf_inout_dims:
+                        x: 64
+                        e: 256
+                        y: 256
+                    transf_ffn_dims:
+                        x: 1024
+                        e: 256
+                        y: 128
+                    transf_hparams:
+                        heads: 8
+                    num_layers: 5
+                gnn_encoder_config:
+                    hidden_channels: 128
+                    num_layers: 5
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 128
+                    num_layers: 5
+                gnn_out_channels: 512
+                readout_hidden_channels: 64

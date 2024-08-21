@@ -1,0 +1,13 @@
+test:
+    generation:
+        num_samples: 1024
+        batch_size: 1024
+    metrics:
+        graph:
+            graph_structure_alt:
+                data_partition: test
+                metrics_list: all
+            graph_conn_comp: {}
+        process:
+            computational_time: {}
+            computational_memory: {}

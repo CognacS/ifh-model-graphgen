@@ -1,0 +1,7 @@
+# @package _global_
+defaults:
+    - default_zinc@
+    - /experiment/seq_degree/cat_1_3@
+
+config_name: 'exp2_catsm_bfs_zinc_${seed}'
+group_name: 'exp2_catsm_bfs_zinc'

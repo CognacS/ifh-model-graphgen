@@ -1,0 +1,7 @@
+defaults:
+    - generic_cdgs@
+
+test:
+    generation:
+        num_samples: 112
+        batch_size: 40

@@ -1,0 +1,29 @@
+# @package _global_
+defaults:
+    - default_enzymes@
+    - /experiment/seq_degree/oneshot@
+
+config_name: 'exp4_one_enzymes_${seed}'
+group_name: 'exp4_one_enzymes'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 128
+                        e: 64
+                        y: 128
+                    transf_inout_dims:
+                        x: 64
+                        e: 512
+                        y: 64
+                    transf_ffn_dims:
+                        x: 64
+                        e: 1024
+                        y: 256
+                    transf_hparams:
+                        heads: 8
+                    num_layers: 5

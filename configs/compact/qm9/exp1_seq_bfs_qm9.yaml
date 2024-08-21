@@ -1,0 +1,46 @@
+# @package _global_
+defaults:
+    - default_qm9@
+    - /experiment/seq_degree/sequential@
+
+config_name: 'exp1_seq_bfs_qm9_${seed}'
+group_name: 'exp1_seq_bfs_qm9'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 128
+                        e: 256
+                        y: 64
+                    transf_inout_dims:
+                        x: 64
+                        e: 256
+                        y: 128
+                    transf_ffn_dims:
+                        x: 256
+                        e: 256
+                        y: 64
+                    transf_hparams:
+                        heads: 8
+                    num_layers: 11
+                gnn_encoder_config:
+                    hidden_channels: 256
+                    num_layers: 5
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 128
+                    num_layers: 7
+                gnn_out_channels: 1024
+                readout_hidden_channels: 256
+        reinsertion:
+            params:
+                gnn_params:
+                    hidden_channels: 128
+                    num_layers: 7
+                gnn_out_channels: 1024
+                readout_hidden_channels: 256

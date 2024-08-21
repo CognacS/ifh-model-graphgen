@@ -1,0 +1,19 @@
+# @package _global_
+defaults:
+    - override /data/dataset: ego-small
+    - override /data/dataloader: batch_128
+    - override /metric: generic_cdgs
+    - override /run: generic_train
+
+
+data: # whole dataset fits into one batch
+    dataloader:
+        train:
+            num_workers: 0
+            persistent_workers: false
+        valid:
+            num_workers: 0
+            persistent_workers: false
+        test:
+            num_workers: 0
+            persistent_workers: false

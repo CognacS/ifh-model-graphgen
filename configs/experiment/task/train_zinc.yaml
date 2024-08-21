@@ -1,0 +1,25 @@
+# @package _global_
+defaults:
+    - override /data/dataset: zinc250k
+    - override /data/dataloader: batch_128
+    - override /metric: molecular
+    - override /run: molecular_train
+
+
+data:
+    dataloader:
+        train:
+            num_workers: 8
+        valid:
+            num_workers: 8
+        test:
+            num_workers: 8
+
+run:
+    training:
+        denoising:
+            class_weighted: true # also include the class weighting
+
+    trainer:
+        max_epochs: 500
+        check_val_every_n_epoch: 2

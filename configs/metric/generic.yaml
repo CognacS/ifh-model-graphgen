@@ -1,0 +1,12 @@
+test:
+    generation:
+        num_samples: 1024
+        batch_size: 1024
+    metrics:
+        graph:
+            graph_structure:
+                data_partition: test
+                metrics_list: all
+        process:
+            computational_time: {}
+            computational_memory: {}

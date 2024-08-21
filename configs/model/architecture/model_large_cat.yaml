@@ -1,0 +1,8 @@
+defaults:
+    - reinsertion: rgcn_distribution
+    - halting: rgcn_regressor
+    - denoising: gt_large
+    - variant/sequential@
+
+use_nodesnum: true
+use_indegree: true

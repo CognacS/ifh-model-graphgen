@@ -1,0 +1,34 @@
+# @package _global_
+defaults:
+    - default_ego_big@
+    - /experiment/seq_degree/oneshot@
+
+config_name: 'exp4_one_ego_big_${seed}'
+group_name: 'exp4_one_ego_big'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 128
+                        e: 64
+                        y: 128
+                    transf_inout_dims:
+                        x: 64
+                        e: 512
+                        y: 64
+                    transf_ffn_dims:
+                        x: 64
+                        e: 512
+                        y: 256
+                    transf_hparams:
+                        heads: 4
+                    num_layers: 5
+
+metric:
+    test:
+        generation:
+            batch_size: 8

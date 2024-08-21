@@ -1,0 +1,7 @@
+# @package _global_
+defaults:
+    - default_zinc@
+    - /experiment/seq_degree/oneshot@
+
+config_name: 'exp4_one_zinc_${seed}'
+group_name: 'exp4_one_zinc'

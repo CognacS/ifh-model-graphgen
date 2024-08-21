@@ -1,0 +1,9 @@
+name: qm9
+root: qm9_h
+download: null
+preprocess:
+    sanitize: true
+    kekulize: true
+    remove_hydrogens: false
+    tr_val_test_split: true
+    remove_nonsmiles: true

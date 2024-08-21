@@ -1,0 +1,7 @@
+denoising:
+    params:
+        transf_config:
+            transf_hparams:
+                cross_attn: false
+
+        gnn_encoder_config: null

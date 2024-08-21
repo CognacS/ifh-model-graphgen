@@ -1,0 +1,10 @@
+process:
+    name: permutation
+    params:
+        permutation_type: ???
+schedule:
+    name: categorical
+    params:
+        block_size_options: ???
+timesampler:
+    name: uniform

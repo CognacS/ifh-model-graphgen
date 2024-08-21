@@ -1,0 +1,26 @@
+# @package _global_
+defaults:
+    - override /data/dataloader: batch_128
+
+data:
+    dataloader:
+        train:
+            num_workers: 4
+        valid:
+            num_workers: 1
+        test:
+            num_workers: 1
+
+
+metric:
+    valid:
+        generation:
+            num_samples: 256
+            batch_size: 256
+    test:
+        generation:
+            num_samples: 256
+            batch_size: 256
+
+run:
+    running_test: true

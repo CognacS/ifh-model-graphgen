@@ -1,0 +1,20 @@
+# @package _global_
+run:
+    trainer:
+        max_epochs: 1
+        check_val_every_n_epoch: 1
+
+    logger:
+        wandb:
+            project: graph-generation-battery-preview
+
+
+metric:
+    valid:
+        generation:
+            num_samples: 256
+            batch_size: 256
+    test:
+        generation:
+            num_samples: 1000
+            batch_size: 1000

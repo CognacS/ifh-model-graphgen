@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+    - override /data/dataset: enzymes
+    - override /data/dataloader: batch_8
+    - override /metric: enzymes
+    - override /run: generic_train
+
+
+data:
+    dataloader:
+        train:
+            num_workers: 4
+        valid:
+            num_workers: 4
+        test:
+            num_workers: 4
+
+run:
+    trainer:
+        max_epochs: 6000
+        check_val_every_n_epoch: 25

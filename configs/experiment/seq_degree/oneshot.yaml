@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+    - override /model/architecture: model_oneshot_large
+    - override /model/removal: oneshot
+
+
+run:
+    training:
+        train_halting: false
+        train_reinsertion: false
+
+
+    early_stopping:
+        module_monitors:
+            reinsertion: null
+            halting: null
+
+    checkpoint:
+        module_monitors:
+            reinsertion: null
+            halting: null

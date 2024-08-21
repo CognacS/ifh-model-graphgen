@@ -1,0 +1,19 @@
+# @package _global_
+defaults:
+    - override /data/dataset: community-20
+    - override /data/dataloader: batch_128 # all samples will be used anyway
+    - override /metric: generic_cdgs
+    - override /run: generic_train
+
+
+data: # whole dataset fits into one batch
+    dataloader:
+        train:
+            num_workers: 0
+            persistent_workers: false
+        valid:
+            num_workers: 0
+            persistent_workers: false
+        test:
+            num_workers: 0
+            persistent_workers: false

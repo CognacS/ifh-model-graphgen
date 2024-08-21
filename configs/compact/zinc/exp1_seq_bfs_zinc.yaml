@@ -1,0 +1,7 @@
+# @package _global_
+defaults:
+    - default_zinc@
+    - /experiment/seq_degree/sequential@
+
+config_name: 'exp1_seq_bfs_zinc_${seed}'
+group_name: 'exp1_seq_bfs_zinc'

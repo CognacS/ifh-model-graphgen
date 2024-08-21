@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+    - default_zinc@
+    - /experiment/seq_degree/oneshot@
+    - override /model/architecture: model_oneshot_larger
+
+config_name: 'exp5_one_larger_zinc_${seed}'
+group_name: 'exp5_one_larger_zinc'

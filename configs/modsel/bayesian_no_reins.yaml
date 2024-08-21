@@ -1,0 +1,46 @@
+# @package _global_
+defaults:
+    - override /hydra/sweeper: optuna
+    - override /hydra/sweeper/sampler: tpe
+    - _self_
+
+hydra:
+    mode: MULTIRUN
+    sweep:
+        dir: multirun/${now:%Y-%m-%d-%H-%M-%S}
+    sweeper:
+        sampler:
+            seed: 0
+        direction:
+            - minimize
+            - minimize
+            - minimize
+        study_name: bayesian_search
+        storage: null
+        n_trials: 15
+        n_jobs: 1
+        params:
+            model.architecture.denoising.params.transf_config.encdec_hidden_dims.x: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.encdec_hidden_dims.e: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.encdec_hidden_dims.y: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_inout_dims.x: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_inout_dims.e: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_inout_dims.y: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_ffn_dims.x: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_ffn_dims.e: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_ffn_dims.y: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.transf_config.transf_hparams.heads: choice(4,8,16)
+            model.architecture.denoising.params.transf_config.num_layers: choice(5,7,9,11)
+            model.architecture.denoising.params.gnn_encoder_config.hidden_channels: choice(64,128,256,512,1024)
+            model.architecture.denoising.params.gnn_encoder_config.num_layers: choice(5,7,9,11)
+            model.architecture.halting.params.gnn_params.hidden_channels: choice(64,128,256,512,1024)
+            model.architecture.halting.params.gnn_params.num_layers: choice(5,7,9,11)
+            model.architecture.halting.params.gnn_out_channels: choice(64,128,256,512,1024)
+            model.architecture.halting.params.readout_hidden_channels: choice(64,128,256,512,1024)
+
+
+run:
+    logger:
+        wandb:
+            project: graph-generation-ifh-hparams
+mode: validate_hparams

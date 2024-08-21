@@ -1,0 +1,11 @@
+# @package _global_
+defaults:
+    - ../default_base@
+    - /experiment/task/train_zinc@
+
+
+# lower memory usage, doesn't affect final results
+metric:
+    test:
+        generation:
+            batch_size: 1000

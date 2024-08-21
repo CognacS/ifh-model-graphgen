@@ -1,0 +1,5 @@
+denoising:
+    params:
+        transf_config:
+            transf_hparams:
+                cross_attn: true

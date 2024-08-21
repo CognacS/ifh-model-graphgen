@@ -1,0 +1,11 @@
+process:
+    name: permutation
+    params:
+        permutation_type: random
+schedule:
+    name: binomial
+    params:
+        binomial_schedule_type: adaptive_linear
+        velocity: 3.0
+timesampler:
+    name: uniform

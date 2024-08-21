@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+    - override /data/dataset: qm9
+    - override /data/dataloader: batch_512
+    - override /metric: molecular
+    - override /run: molecular_train
+
+
+data:
+    dataloader:
+        train:
+            num_workers: 8
+        valid:
+            num_workers: 8
+        test:
+            num_workers: 8

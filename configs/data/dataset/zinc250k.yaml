@@ -1,0 +1,8 @@
+name: zinc250k
+root: zinc250k
+download: null
+preprocess:
+    sanitize: true
+    kekulize: true
+    tr_val_test_split: true
+    remove_nonsmiles: true

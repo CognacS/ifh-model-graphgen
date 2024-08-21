@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+    - override /data/dataset: ego
+    - override /data/dataloader: batch_1
+    - override /metric: ego
+    - override /run: generic_train
+
+
+data:
+    dataloader:
+        train:
+            num_workers: 4
+        valid:
+            num_workers: 4
+        test:
+            num_workers: 4
+
+run:
+    trainer:
+        max_epochs: 2000
+        check_val_every_n_epoch: 10

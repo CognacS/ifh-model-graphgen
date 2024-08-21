@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+    - ../default_qm9@
+    - /experiment/seq_degree/cat_1_4_rnd@
+    - override /data/dataloader: batch_256
+
+config_name: 'abl3_catbg_rnd_qm9_${seed}'
+group_name: 'abl3_catbg_rnd_qm9'

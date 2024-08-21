@@ -1,0 +1,39 @@
+# @package _global_
+defaults:
+    - default_enzymes@
+    - /experiment/seq_degree/sequential@
+
+config_name: 'exp1_seq_bfs_enzymes_${seed}'
+group_name: 'exp1_seq_bfs_enzymes'
+
+# chosen hparams
+model:
+    architecture:
+        denoising:
+            params:
+                transf_config:
+                    encdec_hidden_dims:
+                        x: 256
+                        e: 512
+                        y: 1024
+                    transf_inout_dims:
+                        x: 1024
+                        e: 128
+                        y: 512
+                    transf_ffn_dims:
+                        x: 1024
+                        e: 128
+                        y: 512
+                    transf_hparams:
+                        heads: 8
+                    num_layers: 5
+                gnn_encoder_config:
+                    hidden_channels: 64
+                    num_layers: 9
+        halting:
+            params:
+                gnn_params:
+                    hidden_channels: 64
+                    num_layers: 11
+                gnn_out_channels: 256
+                readout_hidden_channels: 1024

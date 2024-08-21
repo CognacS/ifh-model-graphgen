@@ -1,0 +1,7 @@
+defaults:
+    - reinsertion: empirical
+    - denoising: gt_small
+    - variant/oneshot@
+
+use_nodesnum: true
+use_indegree: true
